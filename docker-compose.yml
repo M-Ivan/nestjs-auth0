@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  # DB
+  postgres:
+    image: 'postgres:16'
+    container_name: postgres-server
+    ports:
+      - '${POSTGRES_PORT}:${POSTGRES_PORT}'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - default
+    env_file:
+      - .env
+  # Redis
+  redis:
+    image: redis:6.2-alpine
+    container_name: redis-cache
+    networks:
+      - default
+    env_file:
+      - .env
+    ports:
+      - '${REDIS_PORT}:${REDIS_PORT}'
+    command: redis-server --save ${REDIS_SECONDS_TO_WRITE} ${REDIS_MIN_ENTRIES_TO_WRITE} --loglevel warning --requirepass ${REDIS_PASSWORD}
+
+volumes:
+  postgres_data:
+networks:
+  default:
+    name: acme-cluster-network
+    driver: bridge
