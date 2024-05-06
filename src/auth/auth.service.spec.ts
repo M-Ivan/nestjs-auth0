@@ -6,9 +6,8 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { Request } from 'express';
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { AppErrorCodes } from '../common/enum/app.error.codes.enum';
 import { AuthSession } from './dto/auth-session.dto';
-import { CACHE_MANAGER, Cache } from '@nestjs/cache-manager';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
 
 describe('AuthController', () => {
   let app: TestingModule;
@@ -50,7 +49,7 @@ describe('AuthController', () => {
         },
       );
 
-      const tokens = Auth0ServiceMock.getUserTokens.mockResolvedValueOnce({
+      Auth0ServiceMock.getUserTokens.mockResolvedValueOnce({
         access_token: 'access_token',
         id_token: fakeJwt,
         expires_in: 3600,
@@ -85,7 +84,7 @@ describe('AuthController', () => {
         expect(e).toEqual(
           new HttpException(
             {
-              code: AppErrorCodes.USER_NOT_AUTHENTICATED,
+              code: HttpStatus.UNAUTHORIZED,
               message: 'User is not logged in.',
               statusCode: HttpStatus.UNAUTHORIZED,
             },
@@ -104,7 +103,7 @@ describe('AuthController', () => {
         expect(e).toEqual(
           new HttpException(
             {
-              code: AppErrorCodes.SESSION_NOT_FOUND,
+              code: HttpStatus.UNAUTHORIZED,
               message: 'Auth session not found.',
               statusCode: HttpStatus.UNAUTHORIZED,
             },

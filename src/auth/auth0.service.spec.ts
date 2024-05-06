@@ -8,7 +8,6 @@ import {
   classesMock,
 } from '../../test/mocks/app.mocks';
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { AppErrorCodes } from '../common/enum/app.error.codes.enum';
 jest.mock('auth0', () => {
   return {
     AuthenticationClient: jest
@@ -68,7 +67,7 @@ describe('Auth0Service', () => {
         expect(e).toEqual(
           new HttpException(
             {
-              code: AppErrorCodes.INVALID_CREDENTIALS,
+              code: HttpStatus.FORBIDDEN,
               message: 'Invalid credentials',
               statusCode: HttpStatus.FORBIDDEN,
             },

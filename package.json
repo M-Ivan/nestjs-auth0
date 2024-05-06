@@ -96,7 +96,8 @@
       ".guard.(t|j)s",
       ".helper.(t|j)s",
       "main.(t|j)s",
-      ".decorator.(t|j)s"
+      ".decorator.(t|j)s",
+      "env.ts"
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
