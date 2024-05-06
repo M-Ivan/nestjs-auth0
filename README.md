@@ -1,6 +1,10 @@
-# NestJS :handshake: Auth0
+<p align="center">
+<img width="100px" alt="auth0" src="https://github.com/M-Ivan/nestjs-auth0/assets/72365253/228a22d3-37ab-4a1c-ac7b-0155893c508e"/> <img width="100px" alt="nestjs" src="https://github.com/M-Ivan/nestjs-auth0/assets/72365253/1fff224e-6d4a-4b98-9d82-870c15e23449" />
+</p>
 
-Boilerplate repo for building a NestJS client of a Auth0 tenant.
+# Nestjs 🤝 Auth0
+
+Template repo for building a NestJS client of a Auth0 tenant.
 
 ## Features
 
