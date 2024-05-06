@@ -1,8 +1,8 @@
 {
-  "name": "nest-typescript-starter",
+  "name": "nestjs-auth-template",
   "private": true,
   "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
+  "description": "Nest Auth0 template repository",
   "license": "MIT",
   "scripts": {
     "build": "nest build",
