@@ -9,9 +9,9 @@ Template repo for building a NestJS client of a Auth0 tenant.
 ## Features
 
 - Fully functional auth module, includes 3 core routes:
-  a. [POST /auth/login](#post-authlogin)
-  b. [GET /auth/logout](#get-authlogout)
-  c. [GET /auth/me](#get-authme)
+  - [POST /auth/login](#post-authlogin)
+  - [GET /auth/logout](#get-authlogout)
+  - [GET /auth/me](#get-authme)
 - Auth session refresh on each request.
 - Auth session validation guard and decorator (for protected endpoints)
 - Integration with auth0 for password grant and refresh token grant flows.
